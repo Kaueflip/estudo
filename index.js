@@ -1,16 +1,10 @@
 const express = require('express');
-const userRoute = require('./src/routes/user.route')
 const app = express();
 
-app.use("/", userRoute)
-//ROTA 3 
-// METHOD HTTP (CRUD (create, read, update, delete))
-  //GET - PEGA UMA INFO
-  //POST - CRIA UMA INFO
-  //PUT - ALTERA TODA A INFO
-  //PATH - ALTERA PARTE DA INFO 
-  //DELETE - APAGA UMA INFO
-// NAME
-// FUNCTION (CALLBACK)
+const userRoute = require('./src/routes/user.route');
+const port = 3000;
 
-app.listen(3000);
+app.use(express.json());
+app.use("/user", userRoute);
+
+app.listen(port , () => console.log(`Servidor rodando na porta ${port}`));
